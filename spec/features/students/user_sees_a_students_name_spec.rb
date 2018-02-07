@@ -34,9 +34,11 @@ describe "Students" do
 
       click_on "Create Student"
 
-      expect(current_path).to eq(students_path
+      expect(current_path).to eq(student_path(Student.last))
       expect(page).to have_content("Muffin")
     end
   end
+
+  
 
 end
