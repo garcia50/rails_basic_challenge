@@ -54,6 +54,21 @@ describe "Students" do
     end
   end
 
+  describe "User delets a student" do 
+    scenario "a user can delete a student" do
+      student = Student.create!(name: "Muffin")
+
+      visit students_path 
+
+      click_on "Delete"
+
+      expect(current_path).to eq(students_path)
+      expect(page).to_not have_content("Muffin")
+      expect(page).to have_content("Students")
+
+    end
+  end
+
 
 
 end
