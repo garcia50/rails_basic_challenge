@@ -5,7 +5,7 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @student Student.find(params[:student_id])
+    @student = Student.find(params[:student_id])
     @address = @student.addresses.create(address_params)
     if @address.save
       redirect_to address_path(@address)
