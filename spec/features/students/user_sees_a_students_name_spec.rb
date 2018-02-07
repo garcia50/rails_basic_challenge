@@ -52,6 +52,7 @@ describe "Students" do
       expect(current_path).to eq(student_path(Student.last))
       expect(page).to have_content("Blue")
     end
+  end
 
 
 
