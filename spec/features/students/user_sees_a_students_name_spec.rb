@@ -25,8 +25,8 @@ describe "Students" do
     end
   end
 
-  describe "User sees a list of students" do 
-    scenario "a user sees a list of students" do
+  describe "User creates a student" do 
+    scenario "a user can create a student" do
 
       visit new_student_path
 
@@ -39,6 +39,41 @@ describe "Students" do
     end
   end
 
-  
+  describe "User edits a student" do 
+    scenario "a user can edit a student" do
+      student = Student.create!(name: "Muffin")
+
+      visit edit_student_path(student)
+
+      fill_in "student[name]", with: "Blue"
+
+      click_on "Update Student"
+
+      expect(current_path).to eq(student_path(Student.last))
+      expect(page).to have_content("Blue")
+    end
+
+
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
